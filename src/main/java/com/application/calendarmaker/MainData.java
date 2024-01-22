@@ -1,6 +1,7 @@
 package com.application.calendarmaker;
 
 import java.io.*;
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -48,15 +49,18 @@ public class MainData {
     public void saveEmployee(String name){
 
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(dataFile));
+            File file = new File(new URI("file:/D:/java-projects/CalendarMaker/src/main/resources/data.txt"));
+
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
 
 
-            writer.write(2);
+            writer.write(name);
 
             writer.close();
 
-        } catch (IOException e) {
-            System.out.println("error");
+
+        } catch (URISyntaxException | IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
