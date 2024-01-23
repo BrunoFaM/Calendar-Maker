@@ -46,6 +46,56 @@ public class MainData {
 
     }
 
+    public void deleteEmployee(String name){
+        employees.remove(name);
+
+
+        try {
+            File file = new File(new URI("file:/D:/java-projects/CalendarMaker/src/main/resources/data.txt"));
+
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+
+            //cleaning the document
+            if(employees.size() == 0){
+                writer.write("");
+                writer.flush();
+            }else{
+                writer.write(employees.get(0));
+                writer.flush();
+                rewriteDocument();
+            }
+            writer.close();
+
+        } catch (URISyntaxException | IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
+
+
+
+    }
+
+    public void rewriteDocument(){
+
+
+        try{
+            File file = new File(new URI("file:/D:/java-projects/CalendarMaker/src/main/resources/data.txt"));
+
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
+
+            for(int i = 1; i < employees.size(); i++){
+                writer.newLine();
+
+                writer.write(employees.get(i));
+            }
+            writer.flush();
+            writer.close();
+        }catch (URISyntaxException | IOException e){
+            throw new RuntimeException(e);
+        }
+    }
+
     public void saveEmployee(String name){
 
         try {
@@ -54,7 +104,12 @@ public class MainData {
             BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
 
 
+
+            writer.newLine();
+
             writer.write(name);
+
+            writer.flush();
 
             writer.close();
 
