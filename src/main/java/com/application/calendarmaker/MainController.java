@@ -21,8 +21,6 @@ public class MainController implements Initializable {
     @FXML
     private ListView<String> listView;
 
-    @FXML
-    private Label myLabel;
 
     @FXML
     private TextField inputTextField;
@@ -75,6 +73,8 @@ public class MainController implements Initializable {
         }
     }
 
+
+    //adjust
     public void add(MouseEvent e){
         Label aux = (Label) e.getSource();
         aux.setText(listView.getSelectionModel().getSelectedItem());
