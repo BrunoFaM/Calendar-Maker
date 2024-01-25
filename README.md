@@ -6,4 +6,8 @@ Delete a User
     
     Rewrite all the employees except the employee to delete (DONE)
 
-Modeling the calendar
+Modeling the calendar 
+    
+    Visual part (Done)
+    Form a matriz with the editables cells
+    Add Functionaliti a each editable cell

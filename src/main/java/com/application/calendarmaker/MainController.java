@@ -19,8 +19,7 @@ import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
     @FXML
-    private ListView<String> listView;
-
+    private ListView<String> employeeslistView;
 
     @FXML
     private TextField inputTextField;
@@ -30,6 +29,8 @@ public class MainController implements Initializable {
 
     private MainData mainData;
 
+    @FXML
+    private ListView<String> cellListView;
 
 
     @Override
@@ -39,13 +40,21 @@ public class MainController implements Initializable {
         mainData = new MainData();
 
 
-        listView.getItems().addAll(mainData.getEmployees());
+        employeeslistView.getItems().addAll(mainData.getEmployees());
 
 
     }
 
+    //insert a value en cell list view
+    public void insertCellList(){
+        String selectedEmployee = employeeslistView.getSelectionModel().getSelectedItem();
+        if(!selectedEmployee.isBlank()){
+            cellListView.getItems().add(selectedEmployee);
+        }
+    }
+
     public void showSelect(MouseEvent event){
-        String selected =listView.getSelectionModel().getSelectedItem();
+        String selected =employeeslistView.getSelectionModel().getSelectedItem();
         System.out.println(selected);
 
 
@@ -59,17 +68,17 @@ public class MainController implements Initializable {
         if(!name.isEmpty()){
             inputTextField.setText("");
             mainData.saveEmployee(name);
-            listView.getItems().add(name);
+            employeeslistView.getItems().add(name);
         }
 
     }
 
     public void removeEmployee(){
-        String name = listView.getSelectionModel().getSelectedItem();
+        String name = employeeslistView.getSelectionModel().getSelectedItem();
         if(!name.isEmpty()){
             mainData.deleteEmployee(name);
             //
-            listView.getItems().setAll(mainData.getEmployees());
+            employeeslistView.getItems().setAll(mainData.getEmployees());
         }
     }
 
@@ -77,7 +86,7 @@ public class MainController implements Initializable {
     //adjust
     public void add(MouseEvent e){
         Label aux = (Label) e.getSource();
-        aux.setText(listView.getSelectionModel().getSelectedItem());
+        aux.setText(employeeslistView.getSelectionModel().getSelectedItem());
         //myLabel.setText(listView.getSelectionModel().getSelectedItem());
     }
 
