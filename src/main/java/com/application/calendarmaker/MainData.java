@@ -8,7 +8,8 @@ import java.util.Objects;
 
 public class MainData {
 
-    private ArrayList<String> employees;
+    //private ArrayList<String> employees;
+    private ArrayList<Employee> employees;
     private final File dataFile;
 
     //String []employees = {"Elena", "Franko", "juan", "camila", "richardo", "yo", "dawd", "dawd", "dwadawd", "leo"};
@@ -33,7 +34,7 @@ public class MainData {
             String aux = reader.readLine();
 
             while(aux != null){
-                employees.add(aux);
+                employees.add(new Employee(aux));
                 aux = reader.readLine();
             }
 
@@ -46,8 +47,8 @@ public class MainData {
 
     }
 
-    public void deleteEmployee(String name){
-        employees.remove(name);
+    public void deleteEmployee(Employee employee){
+        employees.remove(employee);
 
 
         try {
@@ -60,7 +61,7 @@ public class MainData {
                 writer.write("");
                 writer.flush();
             }else{
-                writer.write(employees.get(0));
+                writer.write(employees.get(0).getName());
                 writer.flush();
                 rewriteDocument();
             }
@@ -87,7 +88,7 @@ public class MainData {
             for(int i = 1; i < employees.size(); i++){
                 writer.newLine();
 
-                writer.write(employees.get(i));
+                writer.write(employees.get(i).getName());
             }
             writer.flush();
             writer.close();
@@ -96,7 +97,7 @@ public class MainData {
         }
     }
 
-    public void saveEmployee(String name){
+    public void saveEmployee(Employee employee){
 
         try {
             File file = new File(new URI("file:/D:/java-projects/CalendarMaker/src/main/resources/data.txt"));
@@ -107,7 +108,7 @@ public class MainData {
 
             writer.newLine();
 
-            writer.write(name);
+            writer.write(employee.getName());
 
             writer.flush();
 
@@ -119,7 +120,7 @@ public class MainData {
         }
     }
 
-    public ArrayList<String> getEmployees(){
+    public ArrayList<Employee> getEmployees(){
 
         return employees;
     }
