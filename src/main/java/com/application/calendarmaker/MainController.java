@@ -1,20 +1,16 @@
 package com.application.calendarmaker;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.Node;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
@@ -30,7 +26,10 @@ public class MainController implements Initializable {
     private MainData mainData;
 
     @FXML
-    private ListView<String> cellListView;
+    private GridPane myPane;
+
+
+
 
 
     @Override
@@ -43,15 +42,12 @@ public class MainController implements Initializable {
         employeeslistView.getItems().addAll(mainData.getEmployees());
 
 
+
+
     }
 
     //insert a value en cell list view
-    public void insertCellList(){
-        String selectedEmployee = employeeslistView.getSelectionModel().getSelectedItem().getName();
-        if(!selectedEmployee.isBlank()){
-            cellListView.getItems().add(selectedEmployee);
-        }
-    }
+
 
     public void showSelect(MouseEvent event){
         Employee selected =employeeslistView.getSelectionModel().getSelectedItem();
@@ -91,6 +87,73 @@ public class MainController implements Initializable {
         Label aux = (Label) e.getSource();
         aux.setText(employeeslistView.getSelectionModel().getSelectedItem().getName());
         //myLabel.setText(listView.getSelectionModel().getSelectedItem());
+    }
+
+    //myPane related events
+
+    public void insertCellList(MouseEvent event){
+        //if is leftClick add element otherwise delete
+
+
+        if(event.getButton() == MouseButton.PRIMARY) {
+
+            ListView<String> auxList= (ListView<String>) event.getSource();
+
+            String selectedEmployee = employeeslistView.getSelectionModel().getSelectedItem().getName();
+            if (!selectedEmployee.isBlank()) {
+                auxList.getItems().add(selectedEmployee);
+            }
+        }else if(event.getButton() == MouseButton.SECONDARY){
+
+
+            ListView<String> auxList= (ListView<String>) event.getSource();
+            //creating a new contextMenu for this listView (only the first time that is called)
+            if(auxList.getContextMenu() == null) {
+
+
+                MenuItem menuItem = new MenuItem("Eliminar");
+
+
+                menuItem.setOnAction(new EventHandler<ActionEvent>() {
+                    final ListView<String> list = auxList;
+
+                    @Override
+                    public void handle(ActionEvent event) {
+                        list.getItems().remove(list.getSelectionModel().getSelectedIndex());
+                    }
+                });
+
+                ContextMenu contextMenu = new ContextMenu(menuItem);
+
+                auxList.setContextMenu(contextMenu);
+
+
+            }
+            //System.out.println(auxList.getContextMenu());
+            //ContextMenu myContextMenu = new ContextMenu()
+
+        }
+    }
+
+    //something wrong with this method
+    public void deleteOfCell(ActionEvent event){
+        MenuItem aux = (MenuItem) event.getSource();
+
+        ContextMenu contextAux = aux.getParentPopup();
+
+        Node listAux = contextAux.getOwnerNode();
+
+
+
+
+
+        System.out.println(listAux);
+//        Employee aux = employeeslistView.getSelectionModel().getSelectedItem();
+//        if(aux != null){
+//            mainData.deleteEmployee(aux);
+//            //
+//            employeeslistView.getItems().setAll(mainData.getEmployees());
+//        }
     }
 
 

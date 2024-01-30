@@ -16,4 +16,5 @@ Creating a DSA for handling the data for analisis
 
     POJO for carring data (Employee) - Done
     Adapt tp type Employe the list view - Done
-    Adapt the cellInsert to type Employee
+    Adapt the cellInsert to type Employee - Done
+    add delete and insert of cell - Done
