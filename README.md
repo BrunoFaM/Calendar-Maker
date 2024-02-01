@@ -18,3 +18,8 @@ Creating a DSA for handling the data for analisis
     Adapt tp type Employe the list view - Done
     Adapt the cellInsert to type Employee - Done
     add delete and insert of cell - Done
+
+Save the GridPane data for reOpen
+
+    IDEA: i think i can do this using serialization
+

@@ -1,5 +1,6 @@
 package com.application.calendarmaker;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -135,26 +136,67 @@ public class MainController implements Initializable {
         }
     }
 
-    //something wrong with this method
-    public void deleteOfCell(ActionEvent event){
-        MenuItem aux = (MenuItem) event.getSource();
 
-        ContextMenu contextAux = aux.getParentPopup();
+    public void analizeCalender(){
 
-        Node listAux = contextAux.getOwnerNode();
-
-
-
-
-
-        System.out.println(listAux);
-//        Employee aux = employeeslistView.getSelectionModel().getSelectedItem();
-//        if(aux != null){
-//            mainData.deleteEmployee(aux);
-//            //
-//            employeeslistView.getItems().setAll(mainData.getEmployees());
+//        for(int i = 0; i < myPane.getRowCount(); i++){
+//            for(int j =0; j < myPane.getColumnCount(); j++){
+//                Node aux = getNodeFromGridPane(j, i);
+//                System.out.println(aux);
+//            }
 //        }
+
+
+        Node aux = getNodeFromGridPane(4,4);
+
+        System.out.println(aux);
+
+
     }
+
+    private Node getNodeFromGridPane(int col, int row) {
+        int columnIndex, rowIndex;
+        for (Node node : myPane.getChildren()) {
+
+            if(GridPane.getColumnIndex(node) == null) {
+                columnIndex = 0;
+            }else{
+                columnIndex= GridPane.getColumnIndex(node);
+            }
+            if(GridPane.getRowIndex(node) == null){
+                rowIndex = 0;
+            }else{
+                rowIndex = GridPane.getRowIndex(node);
+            }
+            if (columnIndex == col && rowIndex == row) {
+                return node;
+            }
+        }
+        return null;
+    }
+
+
+
+    //something wrong with this method
+//    public void deleteOfCell(ActionEvent event){
+//        MenuItem aux = (MenuItem) event.getSource();
+//
+//        ContextMenu contextAux = aux.getParentPopup();
+//
+//        Node listAux = contextAux.getOwnerNode();
+//
+//
+//
+//
+//
+//        System.out.println(listAux);
+////        Employee aux = employeeslistView.getSelectionModel().getSelectedItem();
+////        if(aux != null){
+////            mainData.deleteEmployee(aux);
+////            //
+////            employeeslistView.getItems().setAll(mainData.getEmployees());
+////        }
+//    }
 
 
 
