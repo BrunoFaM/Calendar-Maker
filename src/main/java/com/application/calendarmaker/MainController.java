@@ -138,20 +138,75 @@ public class MainController implements Initializable {
 
 
     public void analizeCalender(){
+        //reseting the data
+        for(Employee employee : employeeslistView.getItems()){
+            employee.resetData();
+        }
 
-//        for(int i = 0; i < myPane.getRowCount(); i++){
-//            for(int j =0; j < myPane.getColumnCount(); j++){
-//                Node aux = getNodeFromGridPane(j, i);
-//                System.out.println(aux);
-//            }
-//        }
+        int minutesToWork = 0, isHourChanger;
+
+        for(int i = 1; i < myPane.getRowCount(); i++){
+            for(int j =0; j < myPane.getColumnCount(); j++){
+                Node aux = getNodeFromGridPane(j, i);
+
+                if(aux instanceof Label ){
+                    isHourChanger = processLabel((Label)aux);
+                    if(isHourChanger != 0){
+                        minutesToWork = isHourChanger;
+                    }
+
+                }else{
+                    processListView((ListView<String>) aux, minutesToWork);
+                }
 
 
-        Node aux = getNodeFromGridPane(4,4);
 
-        System.out.println(aux);
+            }
+        }
+
+        for(Employee employee : employeeslistView.getItems()){
+            System.out.println(employee + " WorkedMinutes: " + employee.getTimeWork() + "\n " + "RestDays: " + employee.getRestDays() + "\n " + "HalfRestDays: " + employee.getHalfRestDays());
+        }
 
 
+    }
+
+    private int processLabel(Label label){
+
+        return switch (label.getText()) {
+            case "9:00 a 13:00" -> 240;
+            case "13:00 a 18:00", "17:00 a 22:00" -> 300;
+            case "17:00 a 21:30" -> 270;
+            case "Descanso" -> -1;
+            case "Medio Descanso" -> -2;
+            default -> 0;
+        };
+
+
+
+
+    }
+
+    private void processListView(ListView<String> list, int minutesWork){
+
+        for(String name : list.getItems()){
+            employeeslistView.getItems().forEach(aux -> {
+
+
+
+                if(minutesWork == -1 && aux.getName() == name){
+                    aux.addRestDays(1);
+                }
+                else if(minutesWork == -2 && aux.getName() == name){
+                    aux.addHalfRestDay(1);
+                }
+                else if(aux.getName() == name){
+                    aux.addTimeWork(minutesWork);
+                }
+            });
+        }
+
+        System.out.println("ListView");
     }
 
     private Node getNodeFromGridPane(int col, int row) {

@@ -9,8 +9,8 @@ Delete a User
 Modeling the calendar 
     
     Visual part (Done)
-    Form a matriz with the editables cells
-    Add Functionaliti a each editable cell
+    Form a matriz with the editables cells - Done
+    Add Functionaliti a each editable cell - Done
 
 Creating a DSA for handling the data for analisis
 
@@ -23,3 +23,4 @@ Save the GridPane data for reOpen
 
     IDEA: i think i can do this using serialization
 
+Show the analised data in a table
