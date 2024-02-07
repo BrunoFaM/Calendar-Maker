@@ -24,3 +24,6 @@ Save the GridPane data for reOpen
     IDEA: i think i can do this using serialization
 
 Show the analised data in a table
+
+    create a new scene for the table (Done)
+    create a controller for the table
