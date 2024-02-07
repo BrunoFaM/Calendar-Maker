@@ -190,6 +190,11 @@ public class MainController implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        DataTableController tableController = fxmlLoader.getController();
+
+        tableController.insertData(employeeslistView.getItems());
+
         stage.setTitle("");
         stage.setScene(scene);
 

@@ -3,10 +3,16 @@ package com.application.calendarmaker;
 public class Employee {
 
     private String name;
-    //in seconds
+
+    private String timeWorkFormated = "00:00";
+    //campo for gestion time
     private int timeWork = 0;
     private int restDays = 0;
     private int halfRestDay = 0;
+
+    public String getTimeWorkFormated() {
+        return timeWorkFormated;
+    }
 
 
 
@@ -26,13 +32,33 @@ public class Employee {
         return name;
     }
 
+    private void formatTime(){
+        int hours = this.timeWork / 60;
+        int minutes = this.timeWork % 60;
+
+        if(hours < 10 && minutes < 10) {
+            this.timeWorkFormated = "0" + hours + ":0" + minutes;
+        }
+        else if(hours < 10 ) {
+            this.timeWorkFormated = "0" + hours + ":" + minutes;
+        }
+        else if(minutes < 10) {
+            this.timeWorkFormated = hours + ":0" + minutes;
+        }else{
+            this.timeWorkFormated = hours + ":" + minutes;
+        }
+
+
+    }
+
 
     public int getTimeWork() {
-        return timeWork;
+        return this.timeWork;
     }
 
     public void addTimeWork(int timeWork) {
         this.timeWork += timeWork;
+        this.formatTime();
     }
 
 
