@@ -289,35 +289,7 @@ public class MainController implements Initializable {
      * serialising the data and saving it in a JSON
      */
     public void saveData(){
-        if(!this.saveData.isEmpty()){
-
-
-            Gson gson = new Gson();
-
-            String jsonData = gson.toJson(this.saveData);
-
-            //String jsonData = gson.toJson(this.saveData.get(0));
-            //System.out.println(jsonData);
-
-            try {
-
-                File jsonFile = new File(new URI("file:/D:/java-projects/CalendarMaker/src/main/resources/dataCalender.json"));
-
-                BufferedWriter writer = new BufferedWriter(new FileWriter(jsonFile));
-
-                writer.write(jsonData);
-
-                writer.flush();
-
-                writer.close();
-
-                System.out.println("I'm here");
-
-
-            } catch (URISyntaxException | IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
+        mainData.saveCalendarData(this.saveData);
     }
 
 

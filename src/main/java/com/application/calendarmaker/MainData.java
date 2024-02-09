@@ -1,5 +1,7 @@
 package com.application.calendarmaker;
 
+import com.google.gson.Gson;
+
 import java.io.*;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -12,16 +14,36 @@ public class MainData {
     private ArrayList<Employee> employees;
     private final File dataFile;
 
+    private final File jsonFile;
+    private String jsonCalendarData;
+
     //String []employees = {"Elena", "Franko", "juan", "camila", "richardo", "yo", "dawd", "dawd", "dwadawd", "leo"};
     public MainData()  {
         employees = new ArrayList<>();
 
         try {
             dataFile = new File(getClass().getResource("/data.txt").toURI());
+            jsonFile = new File(getClass().getResource("/dataCalender.json").toURI());
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
         chargeEmployees();
+        chargeJsonCalenderData();
+    }
+
+    private void chargeJsonCalenderData(){
+
+        try{
+
+            BufferedReader reader = new BufferedReader(new FileReader(jsonFile));
+
+            this.jsonCalendarData = reader.readLine();
+
+            reader.close();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void chargeEmployees()  {
@@ -123,5 +145,36 @@ public class MainData {
     public ArrayList<Employee> getEmployees(){
 
         return employees;
+    }
+
+    //methods for saving the calendar data
+    public void saveCalendarData(ArrayList<ListNamesPOJO> saveData){
+
+        Gson gson = new Gson();
+
+        String jsonData = gson.toJson(saveData);
+
+        //String jsonData = gson.toJson(this.saveData.get(0));
+        //System.out.println(jsonData);
+
+        try {
+
+            File jsonFile = new File(new URI("file:/D:/java-projects/CalendarMaker/src/main/resources/dataCalender.json"));
+
+            BufferedWriter writer = new BufferedWriter(new FileWriter(jsonFile));
+
+            writer.write(jsonData);
+
+            writer.flush();
+
+            writer.close();
+
+            System.out.println("I'm here");
+
+
+        } catch (URISyntaxException | IOException e) {
+                throw new RuntimeException(e);
+        }
+
     }
 }
