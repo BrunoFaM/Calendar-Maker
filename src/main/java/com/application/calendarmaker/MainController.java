@@ -14,8 +14,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -282,19 +285,36 @@ public class MainController implements Initializable {
         return null;
     }
 
+    /**
+     * serialising the data and saving it in a JSON
+     */
     public void saveData(){
         if(!this.saveData.isEmpty()){
 
 
             Gson gson = new Gson();
 
+            String jsonData = gson.toJson(this.saveData);
+
+            //String jsonData = gson.toJson(this.saveData.get(0));
+            //System.out.println(jsonData);
+
             try {
-                File jsonFile = new File(getClass().getResource("/dataCalender.json").toURI());
-                System.out.println(jsonFile.exists());
+
+                File jsonFile = new File(new URI("file:/D:/java-projects/CalendarMaker/src/main/resources/dataCalender.json"));
+
+                BufferedWriter writer = new BufferedWriter(new FileWriter(jsonFile));
+
+                writer.write(jsonData);
+
+                writer.flush();
+
+                writer.close();
+
+                System.out.println("I'm here");
 
 
-
-            } catch (URISyntaxException e) {
+            } catch (URISyntaxException | IOException e) {
                 throw new RuntimeException(e);
             }
         }
