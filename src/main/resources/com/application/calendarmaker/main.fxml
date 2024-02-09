@@ -273,6 +273,7 @@
       </GridPane>
       <TextField fx:id="inputTextField" layoutX="14.0" layoutY="21.0" promptText="Nombre empleado" />
       <Button fx:id="saveButton" layoutX="168.0" layoutY="21.0" mnemonicParsing="false" onAction="#addEmployee" text="Añadir" />
-      <Button layoutX="66.0" layoutY="423.0" mnemonicParsing="false" onAction="#analizeCalender" prefHeight="44.0" prefWidth="103.0" text="Analizar" />
+      <Button layoutX="14.0" layoutY="423.0" mnemonicParsing="false" onAction="#analizeCalender" prefHeight="44.0" prefWidth="103.0" text="Analizar" />
+      <Button layoutX="123.0" layoutY="423.0" mnemonicParsing="false" onAction="#saveData" prefHeight="44.0" prefWidth="103.0" text="Guardar" />
    </children>
 </AnchorPane>

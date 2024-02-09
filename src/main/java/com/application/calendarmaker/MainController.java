@@ -1,6 +1,6 @@
 package com.application.calendarmaker;
 
-import javafx.collections.ObservableList;
+import com.google.gson.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -14,8 +14,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
@@ -33,6 +36,8 @@ public class MainController implements Initializable {
     @FXML
     private GridPane myPane;
 
+    private ArrayList<ListNamesPOJO> saveData;
+
 
 
 
@@ -45,6 +50,8 @@ public class MainController implements Initializable {
 
 
         employeeslistView.getItems().addAll(mainData.getEmployees());
+
+        saveData = new ArrayList<ListNamesPOJO>();
 
 
 
@@ -220,6 +227,18 @@ public class MainController implements Initializable {
 
     private void processListView(ListView<String> list, int minutesWork){
 
+        //code for data saving
+
+
+        //if(!list.getItems().isEmpty()){
+            this.saveData.add(new ListNamesPOJO(list.getItems().toArray()));
+        //}
+
+
+
+        //code for data saving
+
+
         for(String name : list.getItems()){
             employeeslistView.getItems().forEach(aux -> {
 
@@ -238,6 +257,8 @@ public class MainController implements Initializable {
         }
 
         System.out.println("ListView");
+        //System.out.println(saveData.get(0).getNames());
+
     }
 
     private Node getNodeFromGridPane(int col, int row) {
@@ -259,6 +280,24 @@ public class MainController implements Initializable {
             }
         }
         return null;
+    }
+
+    public void saveData(){
+        if(!this.saveData.isEmpty()){
+
+
+            Gson gson = new Gson();
+
+            try {
+                File jsonFile = new File(getClass().getResource("/dataCalender.json").toURI());
+                System.out.println(jsonFile.exists());
+
+
+
+            } catch (URISyntaxException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
 
