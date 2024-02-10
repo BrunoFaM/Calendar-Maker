@@ -1,6 +1,9 @@
 package com.application.calendarmaker;
 
 import com.google.gson.*;
+import javafx.beans.InvalidationListener;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -21,8 +24,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class MainController implements Initializable {
     @FXML
@@ -42,7 +44,34 @@ public class MainController implements Initializable {
     private ArrayList<ListNamesPOJO> saveData;
 
 
+    private void chargeGridPane(){
 
+        int k = 0;
+        for(int i = 1; i < myPane.getRowCount(); i++){
+            for(int j =0; j < myPane.getColumnCount(); j++){
+                Node aux = getNodeFromGridPane(j, i);
+
+                if(!(aux instanceof Label)) {
+                    //
+                    ArrayList<String> list =  saveData.get(k).getNames();
+
+
+                    if(list.size() != 0){
+                        ListView<String> listView = (ListView<String>) aux;
+                        listView.getItems().setAll(list);
+                        System.out.println("Adding:" + list + "to Node: [" + i + "][" + j + "]");
+                    }else{
+                        System.out.println(list);
+                    }
+
+                    k++;
+
+                }
+
+            }
+        }
+
+    }
 
 
     @Override
@@ -56,8 +85,19 @@ public class MainController implements Initializable {
 
         saveData = new ArrayList<ListNamesPOJO>();
 
+        ListNamesPOJO[] loadedData = mainData.getLoadCalender();
+
+        if(loadedData.length != 0){
+            Collections.addAll(saveData, loadedData);
+        }
 
 
+        for(ListNamesPOJO list : saveData){
+            System.out.println(list.getNames());
+        }
+
+
+        chargeGridPane();
 
     }
 

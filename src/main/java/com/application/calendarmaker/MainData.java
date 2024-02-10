@@ -31,6 +31,8 @@ public class MainData {
         chargeJsonCalenderData();
     }
 
+
+
     private void chargeJsonCalenderData(){
 
         try{
@@ -38,6 +40,7 @@ public class MainData {
             BufferedReader reader = new BufferedReader(new FileReader(jsonFile));
 
             this.jsonCalendarData = reader.readLine();
+
 
             reader.close();
 
@@ -169,12 +172,23 @@ public class MainData {
 
             writer.close();
 
-            System.out.println("I'm here");
+
 
 
         } catch (URISyntaxException | IOException e) {
                 throw new RuntimeException(e);
         }
 
+    }
+
+    public ListNamesPOJO[] getLoadCalender(){
+        Gson gson = new Gson();
+
+        ListNamesPOJO []data = gson.fromJson(this.jsonCalendarData, ListNamesPOJO[].class);
+        System.out.println("I'm here, deserialization");
+
+
+
+        return data;
     }
 }

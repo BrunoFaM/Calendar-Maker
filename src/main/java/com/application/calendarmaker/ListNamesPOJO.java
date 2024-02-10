@@ -2,6 +2,7 @@ package com.application.calendarmaker;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class ListNamesPOJO {
     private ArrayList<String> names = new ArrayList<>();
@@ -25,6 +26,11 @@ public class ListNamesPOJO {
 
     public void setNames(ArrayList<String> names) {
         this.names = names;
+    }
+
+    public List<String> namesList(){
+        List<String> aux = names;
+        return aux;
     }
 
     @Override
