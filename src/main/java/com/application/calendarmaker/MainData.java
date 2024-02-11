@@ -6,7 +6,6 @@ import java.io.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class MainData {
 
@@ -23,7 +22,7 @@ public class MainData {
 
         try {
             dataFile = new File(getClass().getResource("/data.txt").toURI());
-            jsonFile = new File(getClass().getResource("/dataCalender.json").toURI());
+            jsonFile = new File(new URI("file:/D:/java-projects/CalendarMaker/src/main/resources/dataCalender.json"));
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
@@ -39,12 +38,14 @@ public class MainData {
 
             BufferedReader reader = new BufferedReader(new FileReader(jsonFile));
 
+
             this.jsonCalendarData = reader.readLine();
 
 
             reader.close();
 
         } catch (IOException e) {
+            System.out.println("file empty!!!");
             throw new RuntimeException(e);
         }
     }
@@ -77,9 +78,8 @@ public class MainData {
 
 
         try {
-            File file = new File(new URI("file:/D:/java-projects/CalendarMaker/src/main/resources/data.txt"));
 
-            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(jsonFile));
 
             //cleaning the document
             if(employees.size() == 0){
@@ -92,7 +92,7 @@ public class MainData {
             }
             writer.close();
 
-        } catch (URISyntaxException | IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
@@ -184,7 +184,15 @@ public class MainData {
     public ListNamesPOJO[] getLoadCalender(){
         Gson gson = new Gson();
 
-        ListNamesPOJO []data = gson.fromJson(this.jsonCalendarData, ListNamesPOJO[].class);
+        ListNamesPOJO []data;
+
+        if(this.jsonCalendarData != null){
+            data = gson.fromJson(this.jsonCalendarData, ListNamesPOJO[].class);
+        }else{
+            data = new ListNamesPOJO[0];
+        }
+
+
         System.out.println("I'm here, deserialization");
 
 

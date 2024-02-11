@@ -17,12 +17,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
+
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
+
 import java.net.URL;
 import java.util.*;
 
@@ -89,6 +86,7 @@ public class MainController implements Initializable {
 
         if(loadedData.length != 0){
             Collections.addAll(saveData, loadedData);
+            chargeGridPane();
         }
 
 
@@ -97,7 +95,7 @@ public class MainController implements Initializable {
         }
 
 
-        chargeGridPane();
+
 
     }
 
