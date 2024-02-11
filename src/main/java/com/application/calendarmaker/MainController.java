@@ -2,6 +2,7 @@ package com.application.calendarmaker;
 
 import com.google.gson.*;
 import javafx.beans.InvalidationListener;
+import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -55,7 +56,9 @@ public class MainController implements Initializable {
 
                     if(list.size() != 0){
                         ListView<String> listView = (ListView<String>) aux;
-                        listView.getItems().setAll(list);
+//                        listView.getItems().setAll(list);
+                        ObservableList<String> observableList = FXCollections.observableList(list);
+                        listView.setItems(observableList);
                         System.out.println("Adding:" + list + "to Node: [" + i + "][" + j + "]");
                     }else{
                         System.out.println(list);
@@ -77,8 +80,9 @@ public class MainController implements Initializable {
 
         mainData = new MainData();
 
+        ObservableList<Employee> content = FXCollections.observableList(mainData.getEmployees());
+        employeeslistView.setItems(content);
 
-        employeeslistView.getItems().addAll(mainData.getEmployees());
 
         saveData = new ArrayList<ListNamesPOJO>();
 
@@ -191,6 +195,8 @@ public class MainController implements Initializable {
 
     public void analizeCalender(){
         //reseting the data
+        this.saveData.clear();
+
         for(Employee employee : employeeslistView.getItems()){
             employee.resetData();
         }
@@ -271,9 +277,9 @@ public class MainController implements Initializable {
         //code for data saving
 
 
-        //if(!list.getItems().isEmpty()){
-            this.saveData.add(new ListNamesPOJO(list.getItems().toArray()));
-        //}
+        //error here, i want to save the new data but if i do this, the data saved is more short, i lost the cells that are not listView
+        this.saveData.add(new ListNamesPOJO(list.getItems().toArray()));
+
 
 
 
@@ -281,18 +287,22 @@ public class MainController implements Initializable {
 
 
         for(String name : list.getItems()){
+
             employeeslistView.getItems().forEach(aux -> {
 
 
 
-                if(minutesWork == -1 && aux.getName() == name){
+                if(minutesWork == -1 && Objects.equals(aux.getName(), name)){
                     aux.addRestDays(1);
+                    System.out.println("Adding rest day " + aux.getName());
                 }
-                else if(minutesWork == -2 && aux.getName() == name){
+                else if(minutesWork == -2 && Objects.equals(aux.getName(), name)){
                     aux.addHalfRestDay(1);
+                    System.out.println("Adding half rest to " + aux.getName());
                 }
-                else if(aux.getName() == name){
+                else if(Objects.equals(aux.getName(), name)){
                     aux.addTimeWork(minutesWork);
+                    System.out.println("Adding work time to " + aux.getName());
                 }
             });
         }

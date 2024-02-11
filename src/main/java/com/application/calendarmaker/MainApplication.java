@@ -51,7 +51,7 @@ public class MainApplication extends Application {
 
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
         stage.setTitle("");
         stage.setScene(scene);
 
