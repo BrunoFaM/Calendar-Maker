@@ -275,8 +275,7 @@ public class MainController implements Initializable {
     private void processListView(ListView<String> list, int minutesWork){
 
         //code for data saving
-
-
+        //solved
         //error here, i want to save the new data but if i do this, the data saved is more short, i lost the cells that are not listView
         this.saveData.add(new ListNamesPOJO(list.getItems().toArray()));
 
@@ -363,6 +362,13 @@ public class MainController implements Initializable {
 ////        }
 //    }
 
+    //methods for dowload the calender
+
+    public void downloadCalender(){
+        System.out.println("here init the calender processing for download");
+
+
+    }
 
 
 }
