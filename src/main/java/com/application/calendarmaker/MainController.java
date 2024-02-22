@@ -366,6 +366,8 @@ public class MainController implements Initializable {
 
     public void downloadCalender(){
         System.out.println("here init the calender processing for download");
+        CalenderImageHandler calenderImageHandler = new CalenderImageHandler();
+        myPane.snapshot(calenderImageHandler, null, null);
 
 
     }
