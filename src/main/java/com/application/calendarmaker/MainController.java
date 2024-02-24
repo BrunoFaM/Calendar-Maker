@@ -16,6 +16,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 
@@ -49,7 +50,7 @@ public class MainController implements Initializable {
             for(int j =0; j < myPane.getColumnCount(); j++){
                 Node aux = getNodeFromGridPane(j, i);
 
-                if(!(aux instanceof Label)) {
+                if(!(aux instanceof Label || aux instanceof VBox)) {
                     //
                     ArrayList<String> list =  saveData.get(k).getNames();
 

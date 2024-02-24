@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.calendarmaker.MainController">
@@ -28,25 +29,25 @@
          </contextMenu></ListView>
       <GridPane fx:id="myPane" alignment="CENTER" gridLinesVisible="true" layoutX="232.0" layoutY="21.0" prefHeight="847.0" prefWidth="924.0">
         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="149.0" minWidth="10.0" prefWidth="141.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="126.0" minWidth="10.0" prefWidth="109.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="141.0" prefWidth="141.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="141.0" prefWidth="141.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="141.0" prefWidth="141.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="141.0" prefWidth="141.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="141.0" prefWidth="141.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="141.0" prefWidth="141.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="141.0" prefWidth="141.0" />
 
         </columnConstraints>
         <rowConstraints>
+            <RowConstraints minHeight="-Infinity" prefHeight="1.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" prefHeight="1.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="-Infinity" prefHeight="1.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -54,39 +55,39 @@
 
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" prefHeight="28.0" prefWidth="144.0" text="Caseros">
+            <Label alignment="CENTER" prefHeight="77.0" prefWidth="163.0" style="-fx-background-color: #ffff00;" text="Caseros">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="28.0" prefWidth="107.0" text="Lunes" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="154.0" style="-fx-background-color: #ffff00;" text="Lunes" GridPane.columnIndex="1" GridPane.rowIndex="0">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="28.0" prefWidth="103.0" text="Martes" GridPane.columnIndex="2" GridPane.rowIndex="0">
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="154.0" style="-fx-background-color: #ffff00;" text="Martes" GridPane.columnIndex="2" GridPane.rowIndex="0">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="28.0" prefWidth="103.0" text="Miercoles" GridPane.columnIndex="3" GridPane.rowIndex="0">
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="153.0" style="-fx-background-color: #ffff00;" text="Miercoles" GridPane.columnIndex="3" GridPane.rowIndex="0">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="28.0" prefWidth="105.0" text="Jueves" GridPane.columnIndex="4" GridPane.rowIndex="0">
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="152.0" style="-fx-background-color: #ffff00;" text="Jueves" GridPane.columnIndex="4" GridPane.rowIndex="0">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="35.0" prefWidth="98.0" text="Viernes" GridPane.columnIndex="5" GridPane.rowIndex="0">
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="184.0" style="-fx-background-color: #ffff00;" text="Viernes" GridPane.columnIndex="5" GridPane.rowIndex="0">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="35.0" prefWidth="104.0" text="Sabado" GridPane.columnIndex="6" GridPane.rowIndex="0">
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="164.0" style="-fx-background-color: #ffff00;" text="Sabado" GridPane.columnIndex="6" GridPane.rowIndex="0">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
             <Label alignment="CENTER" prefHeight="25.0" prefWidth="147.0" text="9:00 a 13:00" GridPane.columnIndex="0" GridPane.rowIndex="1">
@@ -129,84 +130,79 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="28.0" prefWidth="145.0" text="Dean Funes" GridPane.columnIndex="0" GridPane.rowIndex="4">
+            <Label alignment="CENTER" prefHeight="78.0" prefWidth="196.0" style="-fx-background-color: #ffff00;" text="Dean Funes" GridPane.columnIndex="0" GridPane.rowIndex="4">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="28.0" prefWidth="107.0" text="Lunes" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="190.0" style="-fx-background-color: #ffff00;" text="Lunes" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="28.0" prefWidth="103.0" text="Martes" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #ffff00;" text="Martes" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="28.0" prefWidth="103.0" text="Miercoles" GridPane.columnIndex="3" GridPane.rowIndex="4">
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="171.0" style="-fx-background-color: #ffff00;" text="Miercoles" GridPane.columnIndex="3" GridPane.rowIndex="4">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="28.0" prefWidth="105.0" text="Jueves" GridPane.columnIndex="4" GridPane.rowIndex="4">
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="157.0" style="-fx-background-color: #ffff00;" text="Jueves" GridPane.columnIndex="4" GridPane.rowIndex="4">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="35.0" prefWidth="98.0" text="Viernes" GridPane.columnIndex="5" GridPane.rowIndex="4">
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="157.0" style="-fx-background-color: #ffff00;" text="Viernes" GridPane.columnIndex="5" GridPane.rowIndex="4">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="35.0" prefWidth="104.0" text="Sabado" GridPane.columnIndex="6" GridPane.rowIndex="4">
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="161.0" style="-fx-background-color: #ffff00;" text="Sabado" GridPane.columnIndex="6" GridPane.rowIndex="4">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="28.0" prefWidth="146.0" text="Continental" GridPane.columnIndex="0" GridPane.rowIndex="8">
+            <Label alignment="CENTER" prefHeight="72.0" prefWidth="167.0" style="-fx-background-color: #ffff00;" text="Continental" GridPane.columnIndex="0" GridPane.rowIndex="8">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="28.0" prefWidth="107.0" text="Lunes" GridPane.columnIndex="1" GridPane.rowIndex="8">
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="183.0" style="-fx-background-color: #ffff00;" text="Lunes" GridPane.columnIndex="1" GridPane.rowIndex="8">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="28.0" prefWidth="103.0" text="Martes" GridPane.columnIndex="2" GridPane.rowIndex="8">
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="166.0" style="-fx-background-color: #ffff00;" text="Martes" GridPane.columnIndex="2" GridPane.rowIndex="8">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="28.0" prefWidth="103.0" text="Miercoles" GridPane.columnIndex="3" GridPane.rowIndex="8">
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="155.0" style="-fx-background-color: #ffff00;" text="Miercoles" GridPane.columnIndex="3" GridPane.rowIndex="8">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="28.0" prefWidth="103.0" text="Jueves" GridPane.columnIndex="4" GridPane.rowIndex="8">
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="141.0" style="-fx-background-color: #ffff00;" text="Jueves" GridPane.columnIndex="4" GridPane.rowIndex="8">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="28.0" prefWidth="103.0" text="Viernes" GridPane.columnIndex="5" GridPane.rowIndex="8">
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="155.0" style="-fx-background-color: #ffff00;" text="Viernes" GridPane.columnIndex="5" GridPane.rowIndex="8">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="28.0" prefWidth="103.0" text="Sabado" GridPane.columnIndex="6" GridPane.rowIndex="8">
+            <Label alignment="CENTER" prefHeight="43.0" prefWidth="157.0" style="-fx-background-color: #ffff00;" text="Sabado" GridPane.columnIndex="6" GridPane.rowIndex="8">
                <font>
-                  <Font size="18.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="27.0" prefWidth="144.0" text="Medio Descanso" GridPane.columnIndex="0" GridPane.rowIndex="12">
+            <Label alignment="CENTER" prefHeight="78.0" prefWidth="141.0" style="-fx-background-color: #ffff00;" text="Descanso" GridPane.columnIndex="0" GridPane.rowIndex="11">
                <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" prefHeight="28.0" prefWidth="144.0" text="Descanso" GridPane.columnIndex="0" GridPane.rowIndex="11">
-               <font>
-                  <Font size="18.0" />
+                  <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
             <ListView onMouseClicked="#insertCellList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
@@ -216,7 +212,7 @@
             <ListView onMouseClicked="#insertCellList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="1" />
             <ListView onMouseClicked="#insertCellList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="1" />
             <ListView onMouseClicked="#insertCellList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <ListView onMouseClicked="#insertCellList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <ListView onMouseClicked="#insertCellList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
             <ListView onMouseClicked="#insertCellList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
             <ListView onMouseClicked="#insertCellList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="2" />
             <ListView onMouseClicked="#insertCellList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
@@ -269,11 +265,28 @@
             <ListView onMouseClicked="#insertCellList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4" GridPane.rowIndex="12" />
             <ListView onMouseClicked="#insertCellList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="5" GridPane.rowIndex="12" />
             <ListView onMouseClicked="#insertCellList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="6" GridPane.rowIndex="12" />
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="12">
+               <children>
+                  <Label alignment="CENTER" prefHeight="37.0" prefWidth="141.0" style="-fx-background-color: #ffff00;" text="Medio">
+                     <font>
+                        <Font name="Arial Black" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="35.0" prefWidth="141.0" style="-fx-background-color: #ffff00;" text="Descanso">
+                     <font>
+                        <Font name="Arial Black" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
          </children>
       </GridPane>
       <TextField fx:id="inputTextField" layoutX="14.0" layoutY="21.0" promptText="Nombre empleado" />
       <Button fx:id="saveButton" layoutX="168.0" layoutY="21.0" mnemonicParsing="false" onAction="#addEmployee" text="Añadir" />
-      <Button layoutX="10.0" layoutY="423.0" mnemonicParsing="false" onAction="#analizeCalender" prefHeight="44.0" prefWidth="103.0" text="Analizar" />
+      <Button layoutX="10.0" layoutY="423.0" mnemonicParsing="false" onAction="#analizeCalender" prefHeight="44.0" prefWidth="103.0" style="-fx-background-color: #0066ff;" text="Analizar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
       <Button layoutX="123.0" layoutY="423.0" mnemonicParsing="false" onAction="#saveData" prefHeight="44.0" prefWidth="103.0" text="Guardar" />
       <Button layoutX="10.0" layoutY="483.0" mnemonicParsing="false" onAction="#downloadCalender" prefHeight="44.0" prefWidth="214.0" text="Descargar Horario" />
    </children>

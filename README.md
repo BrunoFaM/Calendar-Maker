@@ -19,9 +19,10 @@ Creating a DSA for handling the data for analisis
     Adapt the cellInsert to type Employee - Done
     add delete and insert of cell - Done
 
-Save the GridPane data for reOpen
+Save the GridPane data for reOpen (DONE) i use gson
 
     IDEA: i think i can do this using serialization
+    
 
 Show the analised data in a table
 
@@ -31,3 +32,9 @@ Show the analised data in a table
 Tasks
 
     format the hourWorks in the get POJO (Done)
+    
+Bugs to fix
+
+    bug to eliminate of the employees list
+    
+Colors:  #00ffff,  #ffff00,  #33adff
