@@ -216,7 +216,7 @@ public class MainController implements Initializable {
                         minutesToWork = isHourChanger;
                     }
 
-                }else{
+                }else if(aux instanceof ListView<?>){
                     processListView((ListView<String>) aux, minutesToWork);
                 }
 
@@ -262,7 +262,7 @@ public class MainController implements Initializable {
     private int processLabel(Label label){
 
         return switch (label.getText()) {
-            case "9:00 a 13:00" -> 240;
+            case "09:00 a 13:00" -> 240;
             case "13:00 a 18:00", "17:00 a 22:00" -> 300;
             case "17:00 a 21:30" -> 270;
             case "Descanso" -> -1;

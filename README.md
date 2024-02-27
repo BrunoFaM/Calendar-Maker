@@ -32,9 +32,12 @@ Show the analised data in a table
 Tasks
 
     format the hourWorks in the get POJO (Done)
+    make a best responsive desing
+    format the listView (visuals)
     
 Bugs to fix
 
     bug to eliminate of the employees list (FIXED)
+    
     
 Colors:  #00ffff,  #ffff00,  #33adff

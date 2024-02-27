@@ -16,7 +16,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.application.calendarmaker.MainController">
    <children>
-      <ListView fx:id="employeeslistView" layoutX="14.0" layoutY="53.0" onMouseClicked="#showSelect" prefHeight="332.0" prefWidth="206.0">
+      <ListView fx:id="employeeslistView" layoutX="14.0" layoutY="53.0" onMouseClicked="#showSelect" prefHeight="332.0" prefWidth="206.0" style="-fx-text-alignment: center;">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -27,7 +27,7 @@
               </items>
             </ContextMenu>
          </contextMenu></ListView>
-      <GridPane fx:id="myPane" alignment="CENTER" gridLinesVisible="true" layoutX="232.0" layoutY="21.0" prefHeight="847.0" prefWidth="924.0">
+      <GridPane fx:id="myPane" alignment="CENTER" gridLinesVisible="true" layoutX="232.0" layoutY="21.0" prefHeight="847.0" prefWidth="924.0" stylesheets="@../../../styles.css">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="141.0" prefWidth="141.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="141.0" prefWidth="141.0" />
@@ -90,44 +90,44 @@
                   <Font name="Arial Black" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="25.0" prefWidth="147.0" text="9:00 a 13:00" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <Label alignment="CENTER" prefHeight="25.0" prefWidth="147.0" text="09:00 a 13:00" GridPane.columnIndex="0" GridPane.rowIndex="1">
                <font>
-                  <Font size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
             <Label alignment="CENTER" prefHeight="25.0" prefWidth="145.0" text="13:00 a 18:00" GridPane.columnIndex="0" GridPane.rowIndex="2">
                <font>
-                  <Font size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
             <Label alignment="CENTER" prefHeight="25.0" prefWidth="144.0" text="17:00 a 22:00" GridPane.columnIndex="0" GridPane.rowIndex="3">
                <font>
-                  <Font size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="25.0" prefWidth="144.0" text="9:00 a 13:00" GridPane.columnIndex="0" GridPane.rowIndex="5">
+            <Label alignment="CENTER" prefHeight="25.0" prefWidth="144.0" text="09:00 a 13:00" GridPane.columnIndex="0" GridPane.rowIndex="5">
                <font>
-                  <Font size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
             <Label alignment="CENTER" prefHeight="25.0" prefWidth="148.0" text="13:00 a 18:00" GridPane.columnIndex="0" GridPane.rowIndex="6">
                <font>
-                  <Font size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
             <Label alignment="CENTER" prefHeight="25.0" prefWidth="144.0" text="17:00 a 22:00" GridPane.columnIndex="0" GridPane.rowIndex="7">
                <font>
-                  <Font size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="25.0" prefWidth="150.0" text="9:00 a 13:00" GridPane.columnIndex="0" GridPane.rowIndex="9">
+            <Label alignment="CENTER" prefHeight="25.0" prefWidth="150.0" text="09:00 a 13:00" GridPane.columnIndex="0" GridPane.rowIndex="9">
                <font>
-                  <Font size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
             <Label alignment="CENTER" prefHeight="25.0" prefWidth="144.0" text="17:00 a 21:30" GridPane.columnIndex="0" GridPane.rowIndex="10">
                <font>
-                  <Font size="14.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font>
             </Label>
             <Label alignment="CENTER" prefHeight="78.0" prefWidth="196.0" style="-fx-background-color: #ffff00;" text="Dean Funes" GridPane.columnIndex="0" GridPane.rowIndex="4">
