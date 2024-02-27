@@ -35,6 +35,6 @@ Tasks
     
 Bugs to fix
 
-    bug to eliminate of the employees list
+    bug to eliminate of the employees list (FIXED)
     
 Colors:  #00ffff,  #ffff00,  #33adff

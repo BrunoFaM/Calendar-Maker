@@ -135,7 +135,9 @@ public class MainController implements Initializable {
         if(aux != null){
             mainData.deleteEmployee(aux);
             //
-            employeeslistView.getItems().setAll(mainData.getEmployees());
+            ObservableList<Employee> observableList = FXCollections.observableList(mainData.getEmployees());
+            employeeslistView.setItems(observableList);
+
         }
     }
 

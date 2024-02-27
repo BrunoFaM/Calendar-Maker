@@ -21,7 +21,7 @@ public class MainData {
         employees = new ArrayList<>();
 
         try {
-            dataFile = new File(getClass().getResource("/data.txt").toURI());
+            dataFile = new File(new URI("file:/D:/java-projects/CalendarMaker/src/main/resources/data.txt"));
             jsonFile = new File(new URI("file:/D:/java-projects/CalendarMaker/src/main/resources/dataCalender.json"));
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
@@ -79,7 +79,7 @@ public class MainData {
 
         try {
 
-            BufferedWriter writer = new BufferedWriter(new FileWriter(jsonFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(dataFile));
 
             //cleaning the document
             if(employees.size() == 0){
@@ -106,9 +106,8 @@ public class MainData {
 
 
         try{
-            File file = new File(new URI("file:/D:/java-projects/CalendarMaker/src/main/resources/data.txt"));
 
-            BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(dataFile, true));
 
             for(int i = 1; i < employees.size(); i++){
                 writer.newLine();
@@ -117,7 +116,7 @@ public class MainData {
             }
             writer.flush();
             writer.close();
-        }catch (URISyntaxException | IOException e){
+        }catch (IOException e){
             throw new RuntimeException(e);
         }
     }
@@ -125,9 +124,9 @@ public class MainData {
     public void saveEmployee(Employee employee){
 
         try {
-            File file = new File(new URI("file:/D:/java-projects/CalendarMaker/src/main/resources/data.txt"));
+            //File file = new File(new URI("file:/D:/java-projects/CalendarMaker/src/main/resources/data.txt"));
 
-            BufferedWriter writer = new BufferedWriter(new FileWriter(file, true));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(dataFile, true));
 
 
 
@@ -140,7 +139,7 @@ public class MainData {
             writer.close();
 
 
-        } catch (URISyntaxException | IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
@@ -162,7 +161,7 @@ public class MainData {
 
         try {
 
-            File jsonFile = new File(new URI("file:/D:/java-projects/CalendarMaker/src/main/resources/dataCalender.json"));
+            //File jsonFile = new File(new URI("file:/D:/java-projects/CalendarMaker/src/main/resources/dataCalender.json"));
 
             BufferedWriter writer = new BufferedWriter(new FileWriter(jsonFile));
 
@@ -175,7 +174,7 @@ public class MainData {
 
 
 
-        } catch (URISyntaxException | IOException e) {
+        } catch (IOException e) {
                 throw new RuntimeException(e);
         }
 
