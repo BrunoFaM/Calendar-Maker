@@ -10,8 +10,10 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
@@ -370,6 +372,7 @@ public class MainController implements Initializable {
     public void downloadCalender(){
         System.out.println("here init the calender processing for download");
         CalenderImageHandler calenderImageHandler = new CalenderImageHandler();
+
         myPane.snapshot(calenderImageHandler, null, null);
 
 
