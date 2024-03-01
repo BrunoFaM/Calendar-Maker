@@ -218,7 +218,11 @@ public class MainController implements Initializable {
                         minutesToWork = isHourChanger;
                     }
 
-                }else if(aux instanceof ListView<?>){
+                }
+                else if (aux instanceof VBox) {
+                    minutesToWork = -2;
+                }
+                else if(aux instanceof ListView<?>){
                     processListView((ListView<String>) aux, minutesToWork);
                 }
 
@@ -268,7 +272,6 @@ public class MainController implements Initializable {
             case "13:00 a 18:00", "17:00 a 22:00" -> 300;
             case "17:00 a 21:30" -> 270;
             case "Descanso" -> -1;
-            case "Medio Descanso" -> -2;
             default -> 0;
         };
 

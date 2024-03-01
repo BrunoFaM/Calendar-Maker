@@ -33,7 +33,9 @@ Tasks
 
     format the hourWorks in the get POJO (Done)
     make a best responsive desing
-    format the listView (visuals)
+    change the aspect relation of image to 16:9 (DONE)
+    format the listView (visuals) (DONE)
+    Refactor the project structure
     
 Bugs to fix
 
