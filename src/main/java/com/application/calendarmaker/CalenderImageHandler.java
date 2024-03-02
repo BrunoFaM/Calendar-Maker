@@ -22,6 +22,22 @@ import java.util.GregorianCalendar;
 
 public class CalenderImageHandler implements Callback<SnapshotResult, Void> {
 
+    FileChooser fileChooser;
+
+    public CalenderImageHandler(){
+        fileChooser = new FileChooser();
+
+        Calendar calendar = Calendar.getInstance();
+
+        int month = calendar.get(Calendar.MONTH) + 1;
+
+        String fec = "" + calendar.get(Calendar.DAY_OF_MONTH) + "-" + month + "-" + calendar.get(Calendar.YEAR);
+
+        fileChooser.setInitialFileName("horario_" + fec);
+
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image", "*.png"));
+    }
+
     @Override
     public Void call(SnapshotResult param) {
 
@@ -31,20 +47,7 @@ public class CalenderImageHandler implements Callback<SnapshotResult, Void> {
 
 
         try {
-            //adjust and call the fileChooser
-            //File imageFile = new File(new URI("file:/D:/java-projects/CalendarMaker/src/main/resources/image.png"));
 
-            FileChooser fileChooser = new FileChooser();
-
-            Calendar calendar = Calendar.getInstance();
-
-            int month = calendar.get(Calendar.MONTH) + 1;
-
-            String fec = "" + calendar.get(Calendar.DAY_OF_MONTH) + "-" + month + "-" + calendar.get(Calendar.YEAR);
-
-            fileChooser.setInitialFileName("horario_" + fec);
-
-            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image", "*.png"));
 
             File imageFile = fileChooser.showSaveDialog(Window.getWindows().get(0));
 
