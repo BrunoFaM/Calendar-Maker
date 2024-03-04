@@ -1,4 +1,4 @@
-package com.application.calendarmaker;
+package com.application.calendarmaker.daos;
 
 import java.util.ArrayList;
 import java.util.Arrays;

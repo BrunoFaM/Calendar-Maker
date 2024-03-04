@@ -1,4 +1,4 @@
-package com.application.calendarmaker;
+package com.application.calendarmaker.data;
 
 
 import javafx.embed.swing.SwingFXUtils;

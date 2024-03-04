@@ -1,4 +1,4 @@
-package com.application.calendarmaker;
+package com.application.calendarmaker.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.GridPane;

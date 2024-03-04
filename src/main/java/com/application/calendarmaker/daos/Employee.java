@@ -1,4 +1,4 @@
-package com.application.calendarmaker;
+package com.application.calendarmaker.daos;
 
 public class Employee {
 

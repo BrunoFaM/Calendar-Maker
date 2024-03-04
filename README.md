@@ -43,3 +43,8 @@ Bugs to fix
     
     
 Colors:  #00ffff,  #ffff00,  #33adff
+
+function needed after E2E test with final user
+    flexible cell
+    eliminate a row
+    make the labels dynamics
