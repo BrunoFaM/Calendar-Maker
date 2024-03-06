@@ -1,3 +1,20 @@
+# CalenderMaker
+
+Una aplicacion de escritorio para facilitar de creacion y la correcta asignacion de los horarios de cada empleado en una semana de trabajo.
+
+## Tecnologias Usadas
+
+
+- Java
+- JavaFX
+- Gradle
+
+## Funcionalidades
+- Guardado de empleados automatico en archivo txt
+- Guardado de horarios en formato json
+- Interfaz grafica intuitiva
+- Analisis rapido de horas, descansos;  asignados a cada empleado
+
 List of wished functions
 
 Add users between a textField and a button (DONE)
