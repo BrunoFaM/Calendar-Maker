@@ -57,15 +57,15 @@ public class MainController implements Initializable {
                     ArrayList<String> list =  saveData.get(k).getNames();
 
 
-                    if(list.size() != 0){
+                    //if(list.size() != 0){
                         ListView<String> listView = (ListView<String>) aux;
 //                        listView.getItems().setAll(list);
                         ObservableList<String> observableList = FXCollections.observableList(list);
                         listView.setItems(observableList);
                         System.out.println("Adding:" + list + "to Node: [" + i + "][" + j + "]");
-                    }else{
+                    //}else{
                         System.out.println(list);
-                    }
+                    //}
 
                     k++;
 
@@ -379,6 +379,14 @@ public class MainController implements Initializable {
         myPane.snapshot(calenderImageHandler, null, null);
 
 
+    }
+
+    public void resetCalendar(){
+
+        for(ListNamesPOJO lista : saveData){
+            lista.setNames(new ArrayList<String>());
+        }
+        this.chargeGridPane();
     }
 
 
