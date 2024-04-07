@@ -67,6 +67,7 @@ public class MainData {
             }
 
             reader.close();
+            employees.sort(Employee::compareTo);
 
         } catch (IOException e) {
             throw new RuntimeException(e);

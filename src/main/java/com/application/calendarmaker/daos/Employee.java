@@ -1,6 +1,6 @@
 package com.application.calendarmaker.daos;
 
-public class Employee {
+public class Employee implements Comparable<Employee> {
 
     private String name;
 
@@ -82,5 +82,11 @@ public class Employee {
     @Override
     public String toString() {
         return this.name;
+    }
+
+
+    @Override
+    public int compareTo(Employee o) {
+        return this.name.toLowerCase().compareTo(o.getName().toLowerCase());
     }
 }

@@ -128,6 +128,8 @@ public class MainController implements Initializable {
             inputTextField.setText("");
             mainData.saveEmployee(aux);
             employeeslistView.getItems().add(aux);
+
+            employeeslistView.getItems().sort(Employee::compareTo);
         }
 
     }
