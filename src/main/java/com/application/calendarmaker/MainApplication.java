@@ -5,15 +5,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.FileWriter;
+
+import java.awt.*;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystems;
-import java.nio.file.Path;
+
 
 public class MainApplication extends Application {
     @Override
@@ -48,10 +43,24 @@ public class MainApplication extends Application {
 
         writer.write("hola como estas?");
 */
+        Toolkit myToolkit = Toolkit.getDefaultToolkit();
 
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main.fxml"));
+        Dimension dimension = myToolkit.getScreenSize();
+
+        System.out.println("H:" +  dimension.height);
+        System.out.println("W:" +  dimension.width);
+
+        FXMLLoader fxmlLoader;
+
+        if(dimension.width < 1521){
+           fxmlLoader = new FXMLLoader(MainApplication.class.getResource("mainHD.fxml"));
+        }else{
+            fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main.fxml"));
+        }
+
         Scene scene = new Scene(fxmlLoader.load());
-        //stage.setFullScreen(true);
+
+        stage.setFullScreen(true);
         stage.setTitle("");
         stage.setScene(scene);
 

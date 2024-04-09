@@ -101,9 +101,6 @@ public class MainController implements Initializable {
             System.out.println(list.getNames());
         }
 
-
-
-
     }
 
     //insert a value en cell list view
