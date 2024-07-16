@@ -196,7 +196,7 @@ public class MainController implements Initializable {
         }
     }
 
-
+    // analize data and show a table
     public void analizeCalender(){
         //reseting the data
         this.saveData.clear();
@@ -235,6 +235,43 @@ public class MainController implements Initializable {
         }
 
         initializeTable();
+
+
+    }
+    //this only analize the data when the save button is presed, don't show table
+    private void analizeCalenderPrivate(){
+        //reseting the data
+        this.saveData.clear();
+
+        for(Employee employee : employeeslistView.getItems()){
+            employee.resetData();
+        }
+
+        int minutesToWork = 0, isHourChanger;
+
+        for(int i = 1; i < myPane.getRowCount(); i++){
+            for(int j =0; j < myPane.getColumnCount(); j++){
+                Node aux = getNodeFromGridPane(j, i);
+
+                if(aux instanceof Label ){
+                    isHourChanger = processLabel((Label)aux);
+                    if(isHourChanger != 0){
+                        minutesToWork = isHourChanger;
+                    }
+
+                }
+                else if (aux instanceof VBox) {
+                    minutesToWork = -2;
+                }
+                else if(aux instanceof ListView<?>){
+                    processListView((ListView<String>) aux, minutesToWork);
+                }
+
+
+
+            }
+        }
+
 
 
     }
@@ -343,6 +380,7 @@ public class MainController implements Initializable {
      * serialising the data and saving it in a JSON
      */
     public void saveData(){
+        this.analizeCalenderPrivate();
         mainData.saveCalendarData(this.saveData);
     }
 
