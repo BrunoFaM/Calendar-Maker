@@ -1,13 +1,20 @@
 package com.application.calendarmaker.data;
 
+import com.application.calendarmaker.MainApplication;
 import com.application.calendarmaker.daos.Employee;
 import com.application.calendarmaker.daos.ListNamesPOJO;
 import com.google.gson.Gson;
 
+import java.awt.*;
 import java.io.*;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.*;
+import java.nio.file.attribute.UserPrincipalLookupService;
+import java.nio.file.spi.FileSystemProvider;
 import java.util.ArrayList;
+import java.util.Set;
 
 public class MainData {
 
@@ -15,19 +22,53 @@ public class MainData {
     private ArrayList<Employee> employees;
     private final File dataFile;
 
-    private final File jsonFile;
+    private final File jsonFile ;
     private String jsonCalendarData;
 
     //String []employees = {"Elena", "Franko", "juan", "camila", "richardo", "yo", "dawd", "dawd", "dwadawd", "leo"};
     public MainData()  {
         employees = new ArrayList<>();
+        //this 2 work only with teh file in my pc
+        //this 2 work         new URI ("file:/D:/java-projects/src/main/resources/data.txt")
+        //                    new URI ("file:/D:/java-projects/src/main/resources/dataCalender.json")
+
+        String userDir = System.getProperty("user.dir");
+
+        /*
+        the path to resorces isn't the same in development that when packgage the app, y need the two different routes
+        */
+
+        System.out.println(userDir);
+
+        String c = "\\";
+
+        //packaged routes to resources
+        String dataPath = "file:/" + userDir.replace("\\", "/") + "/resources/data.txt";
+        String dataCalenderPath = "file:/" + userDir.replace("\\", "/") + "/resources/" +"dataCalender.json";
+
+        //development routes
+        String dataPath2 = "file:/D:/java-projects/CalendarMaker/src/main/resources/data.txt";
+        String dataCalenderPath2 = "file:/D:/java-projects/CalendarMaker/src/main/resources/dataCalender.json";
+
+
+        System.out.println("my data path: " + dataPath);
+        System.out.println("my dataCalender path: " + dataCalenderPath);
+
 
         try {
-            dataFile = new File(new URI("file:/D:/java-projects/CalendarMaker/src/main/resources/data.txt"));
-            jsonFile = new File(new URI("file:/D:/java-projects/CalendarMaker/src/main/resources/dataCalender.json"));
+            dataFile = new File(new URI(dataPath));
+            jsonFile = new File(new URI(dataCalenderPath));
         } catch (URISyntaxException e) {
+            System.out.println("The error is in the URI");
             throw new RuntimeException(e);
         }
+
+
+
+        System.out.println("Absolute file: " + dataFile.getAbsolutePath());
+        System.out.println("Absolute path: " + jsonFile.getAbsoluteFile());
+
+
         chargeEmployees();
         chargeJsonCalenderData();
     }

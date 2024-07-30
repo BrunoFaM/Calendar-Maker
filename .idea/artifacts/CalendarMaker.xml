@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jpackage" name="CalendarMaker">
+    <output-path>$PROJECT_DIR$/out/artifacts/CalendarMaker</output-path>
+    <root id="root">
+      <element id="archive" name="CalendarMaker.jar">
+        <element id="module-output" name="CalendarMaker" />
+      </element>
+    </root>
+  </artifact>
+</component>
