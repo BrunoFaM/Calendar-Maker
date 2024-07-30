@@ -59,14 +59,17 @@ task customFatJar(type: Jar) {
 
 jlink {
     imageZip = project.file("${buildDir}/distributions/app-${javafx.platform.classifier}.zip")
-    options = [ '--compress', '2', '--no-header-files', '--no-man-pages']
+    options = [ '--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']
     launcher {
-        name = 'CalenderInstaller2'
+        name = 'CalenderMaker'
+        noConsole = true
     }
     jpackage {
-
+        imageName = 'CalenderMaker'
         installerOptions = ['--win-per-user-install', '--win-dir-chooser', '--win-menu']
-        installerType = 'msi'
+        installerName = 'CalenderMaker'
+        installerOptions = ['--win-console', '--win-menu', '--win-shortcut']
+        installerType = 'exe'
 
     }
 

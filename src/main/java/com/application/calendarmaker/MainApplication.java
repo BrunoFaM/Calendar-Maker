@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 
@@ -35,7 +36,10 @@ public class MainApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load());
 
         stage.setFullScreen(true);
-        stage.setTitle("");
+        stage.setTitle("CalenderMaker");
+        Image icon = new Image(MainApplication.class.getClassLoader().getResourceAsStream("ico.png"));
+        stage.getIcons().add(icon);
+
         stage.setScene(scene);
 
 
